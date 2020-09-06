@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/profile_style.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a id="cl" href="home.html">Home</a></li>
+        <li><a class="active" id="cl" href="profile.html">Profile</a></li>
+        <li><a id="cl" href="blog.html">Blog</a></li>
+        <li><a id="cl" href="logout.html">Logout</a></li>
+    </ul>
+    <label id="hunt">BLOGHUNT</label>
+    <label id="write">Think.Blog.Explore.Enjoy...!!</label>
+</nav>
+{% block content %}
+    <div class="pro">
+        <p>Username:{{ res[0] }}</p><br>
+        <p>EmailId:{{ res[1] }}<p><br>
+        <p>Blogs submitted by you</p><br>
+    </div>
+{% endblock%}
+<ul class="cards">
+    {% for column in result %}
+        <li class="cards__item">
+            <div class="card">
+                <div class="card__image">
+                    <img src="{{ column[1] }}" alt="blog img" id="image" style="width:100%"/>
+                </div>
+                  <div class="card__content">
+                    <div class="card__title">{{ column[0] }}</div>
+                    <p class="card__text">{{ column[3] }}</p>
+                    <p class="card-meta">Published by you on {{ column[2] }}</p>
+                  </div>
+                </div>
+            </li>
+    {% endfor %}
+</ul>
+
+
+
+<!--<form action="edit.html" method="POST">
+    <button type="submit" id="btt">Edit Profile</button>
+</form>-->
+</body>
+</html>

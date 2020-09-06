@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/blog_style.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a id="cl" href="home.html">Home</a></li>
+        <li><a id="cl" href="profile.html">Profile</a></li>
+        <li><a class="active" id="cl" href="blog.html">Blog</a></li>
+        <li><a id="cl" href="logout.html">Logout</a></li>
+    </ul>
+</nav>
+<form action=""  method='POST' style="text-align: center">
+<div class="change">
+    <p id="tit">Title</p><br>
+    <input type="text" id="title" name="title" size="50" placeholder="Title" maxlength="30" required><br>
+    <p id="ig">Image url</p><br>
+    <input type="url" id="image" name="image" size="50" placeholder="Image url" required><br>
+    <p id="blg">Blog</p><br>
+    <textarea id="blog" name="content" required>Express your thoughts...</textarea><br>
+    <button type="submit" id="but">Publish</button>
+    {% block content %}
+                <input type="text" name="username" id="name" value="{{ result[0] }}" style="visibility:hidden" required>
+                <input type="email" name="emailid" id="emailid" value="{{ result[1] }}" style="visibility:hidden" required>
+    {% endblock %}
+</div>
+    <input type="text" id="datetime" name="date" style="visibility:hidden" required><br>
+    <script>
+        var dt = new Date();
+        document.getElementById("datetime").value = dt.toLocaleString();
+    </script>
+</form>
+</body>
+</html>

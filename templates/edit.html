@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a id="cl" href="home.html">Home</a></li>
+        <li><a class="active" id="cl" href="profile.html">Profile</a></li>
+        <li><a id="cl" href="blog.html">Blog</a></li>
+        <li><a id="cl" href="logout.html">Logout</a></li>
+    </ul>
+    <label class="hunt">BLOGHUNT</label>
+    <label class="write">Think.Blog.Explore.Enjoy...!!</label>
+</nav>
+<form action="" method="POST">
+    {% block content %}
+        <p>Name:</p>
+        <input type="text" name="name" id="name" value="{{ result[0] }}" required>
+        <p>Email id:</p>
+        <input type="text" name="name" id="name" value="{{ result[1] }}" required>
+    {% endblock %}
+    <p>About me:</p><br>
+    <textarea id="about" name="about" rows="5" cols="30"></textarea><br>
+</form>
+<button type="submit" id="bt">save changes</button>
+</body>
+</html>

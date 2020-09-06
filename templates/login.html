@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <h1>LOGIN</h1>
+    <link rel="stylesheet" href="/static/login.css">
+</head>
+<body>
+<div class="formm">
+    <div class="form-box">
+        <div class="button-box">
+            <div id="btt"></div>
+            <a href="login.html" class="active"><button type="button" class="toggle">Sign in</button></a>
+            <a href="signup.html"><button type="button" class="toggle">Sign up</button></a>
+        </div>
+        <form action="" method="POST" style="text-align:center" class="details">
+            <!--<label for="username">Username:</label><br>-->
+            <input type="text" name="name" id="start" placeholder="Username" required><br>
+            <!--<label for="password">Password:</label><br>-->
+            <input type="password" name="pass" id="start" placeholder="Password" required><br>
+            <label>
+                <input type="checkbox" checked="checked" id="check" name="remember" style="margin-bottom:15px"><span>Remember me</span>
+            </label>
+
+            <button type="submit" id="but">Sign in</button>
+            {% if error %}
+                <div class="err" style="color:red">{{ error }}</div>
+            {% endif %}
+        </form>
+    </div>
+</div>
+</body>
+</html>

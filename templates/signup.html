@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>website</title>
+    <link rel="stylesheet" href="/static/signup.css">
+</head>
+<body>
+<div class="formm">
+    <div class="form-box">
+        <div class="button-box">
+            <div id="btt"></div>
+            <a href="login.html"><button type="button" class="toggle">Sign in</button></a>
+            <a href="signup.html" class="active"><button type="button" class="toggle">Sign up</button></a>
+        </div>
+        <form action=""  method='POST'  class="sign" style="text-align: center">
+            <!--<label for="username">Username:</label><br>-->
+            <input type="text" class="stop" id="name" name="username" placeholder="Username" required><br>
+            <!--<label for="emailid">Email Id:</label><br>-->
+            <input type="email" class="stop" id="email" name="emailid" placeholder="Email id" pattern=".+@gmail.com"
+                   title="abc@gmail.com" required><br>
+            <!--<label for="password">Password:</label><br>-->
+            <input type="password" class="stop" id="password" name="password" placeholder="Password" onchange="check();"
+                   title="must contain at least one number,one uppercase and lowercase letter, and at least 8 or more characters<"
+                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br>
+             <!--<label for="conpass">Confirm Password:</label><br>-->
+            <input type="password" class="stop" id="con" name="conpassword" placeholder="Confirm password" onkeyup="check();"
+                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required><br>
+            <span id="message"></span>
+            <button type="submit" id="btn">Sign up</button>
+             {% if msg %}
+                <div class="msg" style="color:#9e0707">{{ msg }}</div>
+            {% endif %}
+        </form>
+    </div>
+</div>
+<script>
+    var pass=document.getElementById('password');
+    var confirm=document.getElementById('con');
+    function check() {
+        if (pass.value !== confirm.value) {
+            confirm.setCustomValidity("**passwords do not match");
+            //document.getElementById("message").style.color = "red";
+            //document.getElementById("message").innerHTML = "**passwords do not match";
+            //document.getElementById("btn").disabled = true;
+        } else {
+            confirm.setCustomValidity("");
+            //document.getElementById("btn").disabled = false;
+            //document.getElementById("message").innerHTML=""
+        }
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

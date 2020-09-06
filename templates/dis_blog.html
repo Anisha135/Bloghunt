@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for column in result %}
+    <img src="{{ column[1] }}" alt="blog img" style="width:100px;height:100px"/>
+    <div class="content">
+        <h1>{{ column[0] }}</h1>
+        <p>{{ column[3] }}</p>
+    </div>
+{% endfor %}
+</body>
+</html>
