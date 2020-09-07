@@ -28,7 +28,7 @@ def signup():
         elif int(c)>0 and int(b)<=0:
             msg='Email id already exists!'
         elif int(b)>0 and int(c)>0:
-                msg="Both username and email id already exists!"
+            msg="Both username and email id already exists!"
         else:
             cur.execute("INSERT INTO sign(username,emailid,password,conpassword) VALUES(%s, %s,%s,%s)", (username,emailid,password,conpassword))
             mysql.connection.commit()
