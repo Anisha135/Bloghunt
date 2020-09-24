@@ -10,6 +10,7 @@ app.config['MYSQL_PASSWORD'] = 'admin'
 app.config['MYSQL_DB'] = 'register'
 
 mysql= MySQL(app)
+
 @app.route('/signup.html', methods=['GET', 'POST'])
 def signup():
     msg=''
