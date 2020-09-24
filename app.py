@@ -4,18 +4,12 @@ import mysql.connector
 
 app = Flask(__name__)
 app.secret_key = 'your secret key'
-
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'admin'
 app.config['MYSQL_DB'] = 'register'
 
 mysql= MySQL(app)
-
-@app.route('/')
-def star():
-    return redirect('/login.html')
-
 @app.route('/signup.html', methods=['GET', 'POST'])
 def signup():
     msg=''
@@ -40,6 +34,10 @@ def signup():
             cur.close()
             msg='Signed up sucessfully..!!'
     return render_template('signup.html',msg=msg)
+@app.route('/')
+def star():
+    return redirect('/login.html')
+
 
 @app.route('/login.html', methods=['GET','POST'])
 def login():
@@ -57,7 +55,7 @@ def login():
             return redirect('/home.html')
         else:
             error='Incorrect username/password!'
-    return render_template('login.html',error=error)
+    return render_template('login.html', error=error)
 @app.route('/home.html', methods=['POST','GET'])
 def img():
     cur = mysql.connection.cursor()
@@ -108,17 +106,5 @@ def blog():
         cur.close()
     return render_template('blog.html', result=result)
 
-@app.route('/edit.html',methods=['GET','POST'])
-def edit():
-    cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM sign WHERE username = %s AND password = %s', (session['username'],session['password'],))
-    result = cur.fetchone()
-    return render_template('edit.html', result=result)
-@app.route('/blog',methods=['GET','POST'])
-def dis():
-    cur = mysql.connection.cursor()
-    cur.execute('SELECT * FROM blog WHERE image=%s', (session['image'],))
-    result = cur.fetchone()
-    return render_template('dis_blog.html', result=result)
 if __name__ == '__main__':
     app.run(debug=True)
