@@ -1,7 +1,7 @@
-Flask==0.10.1
-Flask_RESTful==0.2.12
-itsdangerous==0.24
-passlib==1.6.5
-requests==2.11.1
-stripe==1.27.1
-gunicorn== 19.9.0 
+Click==7.0
+Flask==1.1.1
+gunicorn==19.9.0
+itsdangerous==1.1.0
+Jinja2==2.10.1
+MarkupSafe==1.1.1
+Werkzeug==0.15.6
