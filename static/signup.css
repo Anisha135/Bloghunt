@@ -20,7 +20,8 @@ body{
         position: relative;
   }
     .formm{
-        padding-top:400px;
+        padding-top:180px;
+        zoom:200%;
     }
 }
 .form-box{
